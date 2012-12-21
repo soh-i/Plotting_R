@@ -1,7 +1,7 @@
 library(ggplot2)
 library(reshape)
 
-adar_fpkm <- read.table("Adar_yok.fpkm", header=T)
+adar_fpkm <- read.table("./result_data/Adar_yok.fpkm", header=T)
 adar_df <- melt(adar_fpkm)
 
 g <- ggplot(
@@ -20,5 +20,5 @@ g <- ggplot(
           y = "FPKM",
           x = ""
     ) + theme(legend.position = "none") # legend is invisible
-plot(g)
-#ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300 )
+
+ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300 )
