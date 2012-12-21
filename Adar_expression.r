@@ -1,0 +1,24 @@
+library(ggplot2)
+library(reshape)
+
+adar_fpkm <- read.table("Adar_yok.fpkm", header=T)
+adar_df <- melt(adar_fpkm)
+
+g <- ggplot(
+  adar_df,
+  aes( x = variable,
+       y = value,
+       fill=Adar1
+       )
+  ) +
+    geom_bar( width = 0.5,
+              alpha = 0.7
+              ) +
+    #scale_fill_manual(values=c("gray") ) +
+    ylim(0,80) + 
+    labs( title = "Expression level of ADAR homolog",
+          y = "FPKM",
+          x = ""
+    ) + theme(legend.position = "none") # legend is invisible
+plot(g)
+#ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300 )
