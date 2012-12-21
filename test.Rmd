@@ -1,0 +1,42 @@
+Title
+========================================================
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring web pages (click the **MD** toolbar button for help on Markdown).
+
+When you click the **Knit HTML** button a web page will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r fig.width=7, fig.height=6}
+library(ggplot2)
+library(reshape)
+
+adar_fpkm <- read.table("Adar_yok.fpkm", header=T)
+adar_df <- melt(adar_fpkm)
+
+g <- ggplot(
+  adar_df,
+  aes( x = variable,
+       y = value,
+       fill=Adar1
+       )
+  ) +
+    geom_bar( width = 0.5,
+              alpha = 0.7
+              ) +
+    #scale_fill_manual(values=c("gray") ) +
+    ylim(0,80) + 
+    labs( title = "Expression level of ADAR homolog",
+          y = "FPKM",
+          x = ""
+    ) + theme(legend.position = "none") # legend is invisible
+plot(g)
+#ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300 )
+
+
+```
+

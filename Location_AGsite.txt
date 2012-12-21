@@ -1,0 +1,5 @@
+Type	Exon	Intron	UTR
+Active	22	2	3
+Tun	14	0	2
+Recovery_80m	18	3	0
+Recovery_3h	23	1	2
