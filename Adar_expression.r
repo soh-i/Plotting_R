@@ -21,4 +21,6 @@ g <- ggplot(
           x = ""
     ) + theme(legend.position = "none") # legend is invisible
 
-ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300 )
+ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300, path="./figure/")
+
+      
