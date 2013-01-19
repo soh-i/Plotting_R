@@ -17,7 +17,7 @@ g <- ggplot(
     width = 0.8
     ) +
   labs( 
-    title = "",
+    #title = "",
     y     = "Percent",
     x     = "" 
     ) +
@@ -29,5 +29,5 @@ g <- ggplot(
     legend.position   = "right",
     legend.background = element_rect( fill = NA ))
 
-plot( g )
+#plot( g )
 ggsave( filename=(paste("Location_AG_sites.eps")), plot=g, width=6.8, height=4, dpi=300, path="./figure/" )
