@@ -1,23 +1,36 @@
 library(ggplot2)
 library(reshape)
 
-DistfromSpliceSite <- read.table("/Volumes/BI/RNA_editing/Dist_spliceSite_all.list", header=F)
-distSS_df          <- melt(DistfromSpliceSite$V1)
+# Plotting for "Distance from splice sites of putative editing sites"
 
-g <- ggplot (
-  distSS_df,
-  aes( x = value )
+MergedDist <- read.table( "/Volumes/BI/RNA_editing/Merged_dist.list", header=T, sep="\t" )
+df <- melt( MergedDist )
+
+g <- ggplot(
+  df,
+  aes( x=value, fill=variable )
 ) +
   labs( 
-    title = "Distance from splice sites of putative editing sites",
-    y     = "Frequency",
-    x     = "Relative position(bp)"
+    title = "",
+    y = "Frequency",
+    x = "Relative position (bp)"
     ) +
   geom_histogram(
     binwidth = 10,
     alpha    = 0.8,
-    fill     = "blue" 
-    ) + xlim( -1000, 1000 )
+    position = "dodge"
+    ) +
+  xlim ( -1000, 1000 ) +
+  scale_fill_discrete (
+    name = "",
+    labels = c( "Control site", "A-to-G site" )
+    ) + 
+  theme (
+    legend.position      = c( 0.95, 0.95 ),
+    legend.justification = c( 1, 1 ),
+    legend.background    = element_rect( fill=NA )
+    )
 
-plot(g)
-ggsave( filename=(paste("Distance_SS.png")), plot=g, width=6, height=4, dpi = 300 )
+plot( g )
+ggsave( filename=( paste( "Distance_SS.png" ) ), plot=g, width=6, height=4, dpi=300 )
+
