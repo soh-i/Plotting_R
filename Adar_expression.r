@@ -8,21 +8,23 @@ g <- ggplot(
   adar_df,
   aes( x    = variable,
        y    = value,
-       fill = Adar1
+       fill = YOKOZUNA_ADAR
        )
   ) +
   geom_bar(
     width = 0.5,
-    alpha = 0.7
-    ) +
-  ylim( 0,80 ) + 
+    alpha = 1,
+  ) +
+  ylim( 0, 80 ) + 
   labs(
-    title = "Expression level of ADAR homolog",
+    #title = "",
     y     = "FPKM",
     x     = ""
     ) +
-  theme( legend.position = "none" ) # legend is invisible
+  theme( legend.position = "none" )
+  
 
-ggsave( filename=(paste("Adar_expression_yok.png")), plot=g, width=6, height=4, dpi = 300, path="./figure/" )
+plot(g)
+ggsave( filename=(paste("Adar_expression_yok.eps")), plot=g, width=6, height=4, dpi = 300, path="./figure/" )
 
       
