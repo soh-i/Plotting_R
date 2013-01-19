@@ -14,8 +14,10 @@ g <- ggplot(
     )
   ) +
   geom_bar(
-    width = 0.8
+    stat="identity",
+    width = 0.7
     ) +
+  ylim( 0, 106) + 
   labs( 
     #title = "",
     y     = "Percent",
@@ -27,7 +29,8 @@ g <- ggplot(
     ) + 
   theme(
     legend.position   = "right",
-    legend.background = element_rect( fill = NA ))
+    legend.background = element_rect( fill=NA )
+  )
 
-#plot( g )
+plot( g )
 ggsave( filename=(paste("Location_AG_sites.eps")), plot=g, width=6.8, height=4, dpi=300, path="./figure/" )
