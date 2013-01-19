@@ -9,7 +9,7 @@ g <- ggplot (
   aes( x = value )
   ) +
   labs( 
-    title = "",
+    #title = "",
     y     = "Frequency",
     x     = "Editing level (%)"
     ) +
@@ -21,5 +21,5 @@ g <- ggplot (
     size     = 0.2
     )
 
-plot(g)
+plot( g )
 ggsave( filename=(paste("Editing_ratio.eps")), plot=g, width=6, height=4, dpi=300, path="./figure/" )
