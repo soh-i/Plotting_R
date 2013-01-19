@@ -13,18 +13,21 @@ g <- ggplot(
     fill = variable
     )
   ) +
-  geom_bar() +
-  labs ( 
-    #title = "Location A-to-G editing sites",
+  geom_bar(
+    width = 0.8
+    ) +
+  labs( 
+    title = "",
     y     = "Percent",
     x     = "" 
-    ) + #scale_fill_brewer( "", palette="Set1" ) +
-      scale_fill_discrete( name = "",
-                           labels=c( "UTR", "Intron", "Exon")
-                           #labels=c("Active", "Tun", "Recovery_80m", "Recivery_3h", "Control")
-                           ) +
-      theme ( legend.position = "right" ) +
-      theme(legend.background = element_rect(fill = NA))
+    ) +
+  scale_fill_discrete(
+    name = "",
+    breaks=c( "UTR", "Intron", "Exon" )
+    ) + 
+  theme(
+    legend.position   = "right",
+    legend.background = element_rect( fill = NA ))
 
 plot( g )
-ggsave( filename=(paste("Location_AG_sites.png")), plot=g, width=6.8, height=4, dpi = 300 )
+ggsave( filename=(paste("Location_AG_sites.eps")), plot=g, width=6.8, height=4, dpi=300, path="./figure/" )
