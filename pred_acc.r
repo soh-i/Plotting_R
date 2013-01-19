@@ -1,23 +1,29 @@
 library(ggplot2)
 library(reshape)
 
-data <- read.table("./result_data/pred_acc.txt", header=F, sep=":")
-df <- melt(data)
+plot_data <- read.table("./result_data/pred_acc.txt", header=T, sep="\t")
 
 g <- ggplot(
-  df,
+  plot_data,
   aes(
-    y = data$V2[1],
-    x = data$V2[2] )
-  ) + geom_point(
-    colour = "orange",
+    x      = Precision,
+    y      = Recall,
+    colour = factor(Type),
+    )) +
+  geom_point(
     size = 6
-    ) + ylim(0,1) + xlim(0,1) + 
+    ) +
+  ylim( 0, 1 ) +
+  xlim( 0, 1 ) + 
   labs(
     #title="Comparison of previous identified editing site in dmel",
-    y = "Recall",
-    x = "Precision"
+    y      = "Recall",
+    x      = "Precision",
+    colour = ""
+  ) +
+  theme(
+    legend.background = element_rect( fill=NA )
     )
 
 plot(g)
-ggsave( filename=(paste("PrecisioRecall_plot.png")), plot=g, width=6, height=4, dpi = 300 )
+ggsave( filename=(paste("PrecisioRecall_plot.eps")), plot=g, width=6, height=4, dpi = 300, path="./figure/" )
