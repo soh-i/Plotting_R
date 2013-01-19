@@ -32,5 +32,5 @@ g <- ggplot(
     )
 
 plot( g )
-ggsave( filename=( paste( "Distance_SS.png" ) ), plot=g, width=6, height=4, dpi=300 )
+ggsave( filename=( paste( "Distance_SS.png" ) ), plot=g, width=6, height=4, dpi=300, path="./figure/" )
 
