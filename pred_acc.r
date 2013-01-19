@@ -1,7 +1,7 @@
 library(ggplot2)
 library(reshape)
 
-data <- read.table("pred_acc.txt", header=F, sep=":")
+data <- read.table("./result_data/pred_acc.txt", header=F, sep=":")
 df <- melt(data)
 
 g <- ggplot(
@@ -14,7 +14,7 @@ g <- ggplot(
     size = 6
     ) + ylim(0,1) + xlim(0,1) + 
   labs(
-    title="Comparison of previous identified editing site in dmel",
+    #title="Comparison of previous identified editing site in dmel",
     y = "Recall",
     x = "Precision"
     )
