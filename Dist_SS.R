@@ -22,7 +22,7 @@ g <- ggplot(
     ) +
   xlim ( -1000, 1000 ) +
   scale_fill_discrete (
-    name = "",
+    name   = "",
     labels = c( "Control site", "A-to-G site" )
     ) + 
   theme(
@@ -33,8 +33,8 @@ g <- ggplot(
   annotate( "text",
             x = 780,
             y = 39,
-            label = paste("p-value = 3.865e-08"),
-            size=4
+            size = 4
+            label = paste("p-value = 3.865e-08")
             )
 
 plot( g )
