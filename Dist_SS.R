@@ -25,12 +25,11 @@ g <- ggplot(
     name = "",
     labels = c( "Control site", "A-to-G site" )
     ) + 
-  theme (
+  theme(
     legend.position      = c( 0.95, 0.95 ),
     legend.justification = c( 1, 1 ),
     legend.background    = element_rect( fill=NA )
-    pane
-    )
+  )
 
 plot( g )
 ggsave( filename=( paste( "Distance_SS.eps" ) ), plot=g, width=6, height=4, dpi=300, path="./figure/" )
