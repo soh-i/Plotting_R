@@ -29,7 +29,13 @@ g <- ggplot(
     legend.position      = c( 0.95, 0.95 ),
     legend.justification = c( 1, 1 ),
     legend.background    = element_rect( fill=NA )
-  )
+  ) + 
+  annotate( "text",
+            x = 780,
+            y = 39,
+            label = paste("p-value = 3.865e-08"),
+            size=4
+            )
 
 plot( g )
 ggsave( filename=( paste( "Distance_SS.eps" ) ), plot=g, width=6, height=4, dpi=300, path="./figure/" )
