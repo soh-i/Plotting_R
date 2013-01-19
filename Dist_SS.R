@@ -17,7 +17,7 @@ g <- ggplot(
     ) +
   geom_histogram(
     binwidth = 10,
-    alpha    = 0.8,
+    alpha    = 1,
     position = "dodge"
     ) +
   xlim ( -1000, 1000 ) +
@@ -29,8 +29,9 @@ g <- ggplot(
     legend.position      = c( 0.95, 0.95 ),
     legend.justification = c( 1, 1 ),
     legend.background    = element_rect( fill=NA )
+    pane
     )
 
 plot( g )
-ggsave( filename=( paste( "Distance_SS.png" ) ), plot=g, width=6, height=4, dpi=300, path="./figure/" )
+ggsave( filename=( paste( "Distance_SS.eps" ) ), plot=g, width=6, height=4, dpi=300, path="./figure/" )
 
