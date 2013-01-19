@@ -10,10 +10,12 @@ g<- ggplot (
   df,
   aes ( x = value,
       y = variable )
-  ) + geom_point (size = 4, col="orange") +
-    geom_line(size = 1, col="orange") + 
-    labs(title="", x = "Editing sites (ranked)", y = "Editing level (%)")
+  ) + geom_point (size = 3, col="orange" ) +
+    geom_line ( size = 0.0, col="orange" ) + 
+    labs( title = "",
+          x = "Editing sites (ranked)",
+          y = "Editing level (%)" )
 
 plot(g)
-
+ggsave( filename=(paste("ranked_editing.png")), plot=g, width=6, height=4, dpi = 300 )
 
