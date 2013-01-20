@@ -21,7 +21,7 @@ g <- ggplot(
     position = "dodge"
     ) +
   xlim ( -1000, 1000 ) +
-  scale_fill_discrete (
+  scale_fill_discrete(
     name   = "",
     labels = c( "Control site", "A-to-G site" )
     ) + 
@@ -31,12 +31,12 @@ g <- ggplot(
     legend.background    = element_rect( fill=NA )
   ) + 
   annotate( "text",
-            x = 780,
-            y = 39,
-            size = 4
-            label = paste("p-value = 3.865e-08")
+            x     = 780,
+            y     = 39,
+            size  = 4,
+            label = paste( "p-value = 3.865e-08" )
             )
 
 plot( g )
-ggsave( filename=( paste( "Distance_SS.eps" ) ), plot=g, width=6, height=4, dpi=300, path="./figure/" )
+ggsave( filename=( paste( "Distance_SS.eps" )), plot=g, width=6, height=4, dpi=300, path="./figure/" )
 
