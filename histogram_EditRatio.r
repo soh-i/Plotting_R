@@ -18,7 +18,7 @@ g <- ggplot (
     alpha    = 1,
     fill     = "orange",
     colour   = "black",
-    size     = 0.2
+    size     = 0.1
     )
 
 plot( g )
