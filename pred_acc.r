@@ -2,6 +2,7 @@ library(ggplot2)
 library(reshape)
 
 plot_data <- read.table("./result_data/pred_acc.txt", header=T, sep="\t")
+plot_data[,1] <- c("In this study", "G-test","Initial call")
 
 g <- ggplot(
   plot_data,
