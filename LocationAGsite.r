@@ -17,7 +17,7 @@ g <- ggplot(
     stat="identity",
     width = 0.7
     ) +
-  ylim( 0, 106) + 
+  ylim( 0, 106 ) + 
   labs( 
     #title = "",
     y     = "Percent",
@@ -30,7 +30,14 @@ g <- ggplot(
   theme(
     legend.position   = "right",
     legend.background = element_rect( fill=NA )
-  )
+  ) +
+  annotate(
+    "text",
+    x     = 1.4,
+    y     = 105,
+    size  = 4,
+    label = paste( "p-value = 0.0002974" )
+    )
 
 plot( g )
 ggsave( filename=(paste("Location_AG_sites.eps")), plot=g, width=6.8, height=4, dpi=300, path="./figure/" )
