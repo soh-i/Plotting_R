@@ -4,6 +4,7 @@ library(reshape)
 locationSite <- read.table("./result_data/Location_AGsite.txt", header=T)
 LS_df        <- melt(locationSite)
 LS_df$Type <- factor(LS_df$Type, c("Active", "Tun", "Recovery_80m", "Recovery_3h", "Control"))
+LS_df$variable <- factor(LS_df$variable, c("UTR", "Intron", "Exon"))
 
 g <- ggplot(
   LS_df,
@@ -25,7 +26,7 @@ g <- ggplot(
     ) +
   scale_fill_discrete(
     name = "",
-    breaks=c( "UTR", "Intron", "Exon" )
+    labels=c( "UTRs", "Intron", "Exon" )
     ) + 
   theme(
     legend.position   = "right",
@@ -33,10 +34,10 @@ g <- ggplot(
   ) +
   annotate(
     "text",
-    x     = 1.4,
+    x     = 1.3,
     y     = 105,
     size  = 4,
-    label = paste( "p-value = 0.0002974" )
+    label = paste( "p-value = 0.8704" )
     )
 
 plot( g )
