@@ -39,9 +39,9 @@ g <- ggplot(
     # F-mesure of In this study
     "text",
     x     = 0.28,
-    y     = 0.37,
+    y     = 0.037,
     size  = 4,
-    label = paste( "0.248" )
+    label = paste( "0.06" )
   ) +
   annotate(
     # F-mesure of In this study
@@ -51,10 +51,6 @@ g <- ggplot(
     size  = 4,
     label = paste( "0.006" )
   )
-
-  
-
-
 
 plot(g)
 ggsave( filename=(paste("PrecisioRecall_plot.eps")), plot=g, width=6, height=4, dpi = 300, path="./figure/" )
